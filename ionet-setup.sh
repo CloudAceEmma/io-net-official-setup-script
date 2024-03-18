@@ -79,18 +79,9 @@ else
                                 # Commands specific to Ubuntu 22.04
                                 sudo -- sh -c 'apt-get update; apt-get upgrade -y; apt-get autoremove -y; apt-get autoclean -y'
                                 sudo -- sh -c 'apt-get update; apt-get upgrade -y; apt-get autoremove -y; apt-get autoclean -y'
-                                sudo apt install linux-headers-$(uname -r) -y
                                 sudo apt del 7fa2af80 || true
                                 sudo apt remove 7fa2af80 || true
-                                sudo apt install build-essential cmake gpg unzip pkg-config software-properties-common ubuntu-drivers-common -y
-                                sudo apt install libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev -y
-                                sudo apt install libjpeg-dev libpng-dev libtiff-dev -y 
-                                sudo apt install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y 
-                                sudo apt install libxvidcore-dev libx264-dev -y
-                                sudo apt install libopenblas-dev libatlas-base-dev liblapack-dev gfortran -y 
-                                sudo apt install libhdf5-serial-dev -y 
-                                sudo apt install python3-dev python3-tk curl gnupg-agent dirmngr alsa-utils -y
-                                sudo apt install libgtk-3-dev -y 
+                                sudo apt install ubuntu-drivers-common -y
                                 sudo apt update -y
                                 sudo dirmngr </dev/null
                                 if sudo apt-add-repository -y ppa:graphics-drivers/ppa && sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FCAE110B1118213C; then
@@ -103,13 +94,6 @@ else
                                     sudo chmod 644 /etc/apt/trusted.gpg.d/graphics-drivers.gpg
                                 fi
                                 sudo ubuntu-drivers autoinstall
-                                sudo apt update -y
-                                wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
-                                sudo dpkg -i cuda-keyring_1.1-1_all.deb
-                                sudo apt update -y
-                                sudo apt -y install cuda-toolkit
-                                export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-                                sudo apt update -y
                                 ;;
 
                             "18.04")
